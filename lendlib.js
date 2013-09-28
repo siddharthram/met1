@@ -1,4 +1,7 @@
+lists = new Meteor.Collection("Lists");
+
 if (Meteor.isClient) {
+  /*
   Template.hello.greeting = function () {
     return "Welcome to lendlib.";
   };
@@ -10,6 +13,11 @@ if (Meteor.isClient) {
         console.log("You pressed the button");
     }
   });
+*/
+
+  Template.categories.lists = function() {
+    return lists.find({}, {sort: {Category:1}});
+  }
 }
 
 if (Meteor.isServer) {
